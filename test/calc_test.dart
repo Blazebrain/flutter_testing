@@ -42,6 +42,19 @@ void main() {
         // ASSERT
         expect(() => calculator!.divide(4, 0), throwsArgumentError);
       });
+
+      test('raise value to power of two', () async {
+        //ACT
+        final value = await calculator!.powerOfTwo(5);
+        // ASSERT
+        expect(value, 25);
+      });
+
+      test('Emits stream in the right order', () {
+        final values = calculator!.pi();
+
+        expect(values, emitsInOrder([3, 3.1, 3.14, 3.142, 3.1415]));
+      });
     },
   );
 }
